@@ -12,11 +12,18 @@ phases:
     commands:
         # run build script
         - npm run build
+
+  post_build:
+    commands:
+      - chmod +x scripts/*.sh
      
 artifacts:
   # include all files required to run the application
   files:
+    - appspec.yml
     - dist/**/*
+    - scripts/**/*
+  discard-paths: no
     #- src/**/*
     #- package.json
     #- appspec.yml
